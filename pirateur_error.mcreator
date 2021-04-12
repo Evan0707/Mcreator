@@ -1,0 +1,39 @@
+{
+  "id_map": {},
+  "mod_elements": [
+    {
+      "name": "L",
+      "type": "enchantment",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "l"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "enchantment.pirateur_error.l": "L"
+    }
+  },
+  "workspaceSettings": {
+    "modid": "pirateur_error",
+    "modName": "pirateur error",
+    "version": "1.0.0",
+    "author": "GERY, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.15.2",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.pirateurerror",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202000547520
+}
