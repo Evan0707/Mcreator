@@ -1,20 +1,12 @@
 
 package net.mcreator.pirateurerror.item;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Item;
-import net.minecraft.item.IItemTier;
-
-import net.mcreator.pirateurerror.PirateurErrorModElements;
-
 @PirateurErrorModElements.ModElement.Tag
 public class JesuislaItem extends PirateurErrorModElements.ModElement {
+
 	@ObjectHolder("pirateur_error:jesuisla")
 	public static final Item block = null;
+
 	public JesuislaItem(PirateurErrorModElements instance) {
 		super(instance, 1);
 	}
@@ -46,6 +38,8 @@ public class JesuislaItem extends PirateurErrorModElements.ModElement {
 				return Ingredient.EMPTY;
 			}
 		}, 1, -3f, new Item.Properties().group(ItemGroup.TOOLS)) {
+
 		}.setRegistryName("jesuisla"));
 	}
+
 }

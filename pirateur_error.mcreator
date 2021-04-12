@@ -9,6 +9,15 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "jesuisla"
+    },
+    {
+      "name": "BonCourrage",
+      "type": "overlay",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "bon_courrage"
     }
   ],
   "variable_elements": [],
