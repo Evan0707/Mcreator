@@ -1,22 +1,10 @@
 {
   "id_map": {},
-  "mod_elements": [
-    {
-      "name": "L",
-      "type": "enchantment",
-      "sortid": 1,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "l"
-    }
-  ],
+  "mod_elements": [],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
-    "en_us": {
-      "enchantment.pirateur_error.l": "L"
-    }
+    "en_us": {}
   },
   "workspaceSettings": {
     "modid": "pirateur_error",
