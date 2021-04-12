@@ -1,10 +1,31 @@
 {
   "id_map": {},
-  "mod_elements": [],
+  "mod_elements": [
+    {
+      "name": "Jesuisla",
+      "type": "tool",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "jesuisla"
+    },
+    {
+      "name": "BonCourrage",
+      "type": "overlay",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "bon_courrage"
+    }
+  ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
-    "en_us": {}
+    "en_us": {
+      "item.pirateur_error.jesuisla": "Jesuisla"
+    }
   },
   "workspaceSettings": {
     "modid": "pirateur_error",
