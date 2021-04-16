@@ -1,10 +1,23 @@
 {
   "id_map": {},
-  "mod_elements": [],
+  "mod_elements": [
+    {
+      "name": "Boss1",
+      "type": "mob",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "boss_1"
+    }
+  ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
-    "en_us": {}
+    "en_us": {
+      "entity.pirateur_error.boss_1": "psyco",
+      "item.pirateur_error.boss_1_spawn_egg": "psyco Spawn Egg"
+    }
   },
   "workspaceSettings": {
     "modid": "pirateur_error",
