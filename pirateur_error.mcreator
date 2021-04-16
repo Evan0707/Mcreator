@@ -1,10 +1,69 @@
 {
   "id_map": {},
-  "mod_elements": [],
+  "mod_elements": [
+    {
+      "name": "OGREConditionDapparitionDesParticules",
+      "type": "procedure",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "ogre_condition_dapparition_des_particules",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OGREQuandLentiteMeurt",
+      "type": "procedure",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "ogre_quand_lentite_meurt",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OGRE",
+      "type": "mob",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "ogre"
+    }
+  ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
-    "en_us": {}
+    "en_us": {
+      "entity.pirateur_error.ogre": "OGRE",
+      "item.pirateur_error.ogre_spawn_egg": "OGRE Spawn Egg"
+    }
   },
   "workspaceSettings": {
     "modid": "pirateur_error",
