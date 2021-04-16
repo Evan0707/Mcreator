@@ -2,6 +2,15 @@
   "id_map": {},
   "mod_elements": [
     {
+      "name": "OGRE",
+      "type": "mob",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "ogre"
+    },
+    {
       "name": "OGREQuandLentiteMeurt",
       "type": "procedure",
       "sortid": 2,
@@ -12,64 +21,20 @@
       "metadata": {
         "dependencies": [
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "OGREConditionDapparitionDesParticules",
-      "type": "procedure",
-      "sortid": 1,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "ogre_condition_dapparition_des_particules",
-      "metadata": {
-        "dependencies": [
-          {
             "name": "entity",
             "type": "entity"
           }
         ]
       }
-    },
-    {
-      "name": "OGRE",
-      "type": "mob",
-      "sortid": 1,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "ogre"
-    },
-    {
-      "name": "Boss1",
-      "type": "mob",
-      "sortid": 1,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "boss_1"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
-    "en_us": {}
+    "en_us": {
+      "entity.pirateur_error.ogre": "OGRE",
+      "item.pirateur_error.ogre_spawn_egg": "OGRE Spawn Egg"
+    }
   },
   "workspaceSettings": {
     "modid": "pirateur_error",
