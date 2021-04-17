@@ -28,23 +28,6 @@
       }
     },
     {
-      "name": "Walkogre",
-      "type": "procedure",
-      "sortid": 3,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "walkogre",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
-    },
-    {
       "name": "OgreTeeth",
       "type": "item",
       "sortid": 4,
@@ -61,6 +44,32 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "mass"
+    },
+    {
+      "name": "WatherOgreMobplayerCollidesBlock",
+      "type": "procedure",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "wather_ogre_mobplayer_collides_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "WatherOgre",
+      "type": "fluid",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "wather_ogre"
     }
   ],
   "variable_elements": [],
@@ -68,7 +77,9 @@
   "language_map": {
     "en_us": {
       "item.pirateur_error.mass": "Mass",
+      "item.pirateur_error.wather_ogre_bucket": "WatherOgre Bucket",
       "entity.pirateur_error.ogre": "OGRE",
+      "fluid.wather_ogre": "WatherOgre",
       "item.pirateur_error.ogre_teeth": "Ogre Teeth",
       "item.pirateur_error.ogre_spawn_egg": "OGRE Spawn Egg"
     }

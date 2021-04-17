@@ -1,6 +1,8 @@
 {
   "item.pirateur_error.mass": "Mass",
+  "item.pirateur_error.wather_ogre_bucket": "WatherOgre Bucket",
   "entity.pirateur_error.ogre": "OGRE",
+  "fluid.wather_ogre": "WatherOgre",
   "item.pirateur_error.ogre_teeth": "Ogre Teeth",
   "item.pirateur_error.ogre_spawn_egg": "OGRE Spawn Egg"
 }
