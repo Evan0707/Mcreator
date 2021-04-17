@@ -1,7 +1,9 @@
 {
   "item.pirateur_error.mass": "Mass",
-  "entity.pirateur_error.ogre": "OGRE",
+  "item.pirateur_error.dq_spawn_egg": "Dq Spawn Egg",
+  "entity.pirateur_error.dq": "Dq",
+  "entity.pirateur_error.ogure": "Ogre",
   "fluid.morvedogre": "Morvedogre",
   "item.pirateur_error.morvedogre_bucket": "Morvedogre Bucket",
-  "item.pirateur_error.ogre_spawn_egg": "OGRE Spawn Egg"
+  "item.pirateur_error.ogure_spawn_egg": "Ogre Spawn Egg"
 }

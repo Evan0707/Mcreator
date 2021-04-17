@@ -12,21 +12,15 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
-import net.minecraft.world.server.ServerBossInfo;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
-import net.minecraft.world.BossInfo;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.network.IPacket;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
-import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
@@ -39,39 +33,36 @@ import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.client.renderer.entity.model.BipedModel;
-import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
-import net.minecraft.client.renderer.entity.BipedRenderer;
-import net.minecraft.block.BlockState;
+import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.MobRenderer;
 
-import net.mcreator.pirateurerror.procedures.OGREQuandLentiteMeurtProcedure;
 import net.mcreator.pirateurerror.PirateurErrorModElements;
 
-import java.util.Random;
-import java.util.Map;
-import java.util.HashMap;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.mojang.blaze3d.matrix.MatrixStack;
 
 @PirateurErrorModElements.ModElement.Tag
-public class OGREEntity extends PirateurErrorModElements.ModElement {
+public class DqEntity extends PirateurErrorModElements.ModElement {
 	public static EntityType entity = null;
-	public OGREEntity(PirateurErrorModElements instance) {
-		super(instance, 1);
+	public DqEntity(PirateurErrorModElements instance) {
+		super(instance, 6);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("ogre")
-						.setRegistryName("ogre");
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("dq")
+						.setRegistryName("dq");
 		elements.entities.add(() -> entity);
-		elements.items.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("ogre_spawn_egg"));
+		elements.items.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("dq_spawn_egg"));
 	}
 
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
-			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 20, 1, 1));
+			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 20, 4, 4));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
@@ -81,14 +72,12 @@ public class OGREEntity extends PirateurErrorModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(entity, renderManager -> {
-			BipedRenderer customRender = new BipedRenderer(renderManager, new BipedModel(0), 0.5f) {
+			return new MobRenderer(renderManager, new Modelptdr(), 0.5f) {
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("pirateur_error:textures/ddd.png");
+					return new ResourceLocation("pirateur_error:textures/mdr.png");
 				}
 			};
-			customRender.addLayer(new BipedArmorLayer(customRender, new BipedModel(0.5f), new BipedModel(1)));
-			return customRender;
 		});
 	}
 	public static class CustomEntity extends MonsterEntity {
@@ -123,17 +112,6 @@ public class OGREEntity extends PirateurErrorModElements.ModElement {
 		}
 
 		@Override
-		public net.minecraft.util.SoundEvent getAmbientSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.blaze.ambient"));
-		}
-
-		@Override
-		public void playStepSound(BlockPos pos, BlockState blockIn) {
-			this.playSound((net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.iron_golem.step")),
-					0.15f, 1);
-		}
-
-		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.hurt"));
 		}
@@ -144,84 +122,82 @@ public class OGREEntity extends PirateurErrorModElements.ModElement {
 		}
 
 		@Override
-		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source.getImmediateSource() instanceof ArrowEntity)
-				return false;
-			if (source == DamageSource.FALL)
-				return false;
-			return super.attackEntityFrom(source, amount);
-		}
-
-		@Override
-		public void onDeath(DamageSource source) {
-			super.onDeath(source);
-			double x = this.getPosX();
-			double y = this.getPosY();
-			double z = this.getPosZ();
-			Entity sourceentity = source.getTrueSource();
-			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				OGREQuandLentiteMeurtProcedure.executeProcedure($_dependencies);
-			}
-		}
-
-		@Override
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
 				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
-				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(150);
+				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
-				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2);
+				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null)
 				this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
+			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3);
+		}
+	}
+
+	// Made with Blockbench 3.8.3
+	// Exported for Minecraft version 1.15 - 1.16
+	// Paste this class into your mod and generate all required imports
+	public static class Modelptdr extends EntityModel<Entity> {
+		private final ModelRenderer body;
+		private final ModelRenderer body_r1;
+		private final ModelRenderer head;
+		private final ModelRenderer rightArm;
+		private final ModelRenderer leftArm;
+		private final ModelRenderer leftArm_r1;
+		private final ModelRenderer bb_main;
+		private final ModelRenderer leftArm_r2;
+		public Modelptdr() {
+			textureWidth = 64;
+			textureHeight = 64;
+			body = new ModelRenderer(this);
+			body.setRotationPoint(0.0F, 0.0F, 0.0F);
+			body.setTextureOffset(0, 16).addBox(-4.0F, 22.0F, 4.0F, 8.0F, 2.0F, 9.0F, 0.0F, false);
+			body.setTextureOffset(25, 9).addBox(-4.0F, 20.0F, 6.0F, 8.0F, 2.0F, 7.0F, 0.0F, false);
+			body_r1 = new ModelRenderer(this);
+			body_r1.setRotationPoint(0.0F, 24.0F, 0.0F);
+			body.addChild(body_r1);
+			setRotationAngle(body_r1, 1.0472F, 0.0F, 0.0F);
+			body_r1.setTextureOffset(0, 27).addBox(-4.0F, -10.0F, 2.0F, 8.0F, 14.0F, 5.0F, 0.0F, false);
+			head = new ModelRenderer(this);
+			head.setRotationPoint(0.0F, 0.0F, 0.0F);
+			head.setTextureOffset(0, 0).addBox(-4.0F, 9.0F, -14.0F, 8.0F, 8.0F, 8.0F, 0.0F, false);
+			rightArm = new ModelRenderer(this);
+			rightArm.setRotationPoint(5.0F, 2.0F, 0.0F);
+			leftArm = new ModelRenderer(this);
+			leftArm.setRotationPoint(-10.0F, 0.0F, 0.0F);
+			rightArm.addChild(leftArm);
+			leftArm_r1 = new ModelRenderer(this);
+			leftArm_r1.setRotationPoint(5.0F, 22.0F, 0.0F);
+			leftArm.addChild(leftArm_r1);
+			setRotationAngle(leftArm_r1, -0.0436F, 0.0F, 0.1745F);
+			leftArm_r1.setTextureOffset(34, 18).addBox(-7.0F, -7.0F, -6.0F, 2.0F, 8.0F, 2.0F, 0.0F, false);
+			bb_main = new ModelRenderer(this);
+			bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
+			leftArm_r2 = new ModelRenderer(this);
+			leftArm_r2.setRotationPoint(0.0F, 0.0F, 0.0F);
+			bb_main.addChild(leftArm_r2);
+			setRotationAngle(leftArm_r2, -0.0436F, 0.0F, -0.1745F);
+			leftArm_r2.setTextureOffset(26, 27).addBox(5.0F, -7.0F, -5.0F, 2.0F, 8.0F, 2.0F, 0.0F, false);
 		}
 
 		@Override
-		public boolean isNonBoss() {
-			return false;
-		}
-		private final ServerBossInfo bossInfo = new ServerBossInfo(this.getDisplayName(), BossInfo.Color.GREEN, BossInfo.Overlay.PROGRESS);
-		@Override
-		public void addTrackingPlayer(ServerPlayerEntity player) {
-			super.addTrackingPlayer(player);
-			this.bossInfo.addPlayer(player);
+		public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue,
+				float alpha) {
+			body.render(matrixStack, buffer, packedLight, packedOverlay);
+			head.render(matrixStack, buffer, packedLight, packedOverlay);
+			rightArm.render(matrixStack, buffer, packedLight, packedOverlay);
+			bb_main.render(matrixStack, buffer, packedLight, packedOverlay);
 		}
 
-		@Override
-		public void removeTrackingPlayer(ServerPlayerEntity player) {
-			super.removeTrackingPlayer(player);
-			this.bossInfo.removePlayer(player);
+		public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+			modelRenderer.rotateAngleX = x;
+			modelRenderer.rotateAngleY = y;
+			modelRenderer.rotateAngleZ = z;
 		}
 
-		@Override
-		public void updateAITasks() {
-			super.updateAITasks();
-			this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
-		}
-
-		public void livingTick() {
-			super.livingTick();
-			double x = this.getPosX();
-			double y = this.getPosY();
-			double z = this.getPosZ();
-			Random random = this.rand;
-			Entity entity = this;
-			if (true)
-				for (int l = 0; l < 1; ++l) {
-					double d0 = (x + random.nextFloat());
-					double d1 = (y + random.nextFloat());
-					double d2 = (z + random.nextFloat());
-					int i1 = random.nextInt(2) * 2 - 1;
-					double d3 = (random.nextFloat() - 0.5D) * 1.9D;
-					double d4 = (random.nextFloat() - 0.5D) * 1.9D;
-					double d5 = (random.nextFloat() - 0.5D) * 1.9D;
-					world.addParticle(ParticleTypes.EXPLOSION, d0, d1, d2, d3, d4, d5);
-				}
+		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
 		}
 	}
 }
