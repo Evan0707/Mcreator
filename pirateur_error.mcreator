@@ -20,29 +20,12 @@
     },
     {
       "name": "Mass",
-      "type": "tool",
-      "sortid": 3,
+      "type": "item",
+      "sortid": 5,
       "compiles": true,
       "locked_code": false,
       "ids": {},
       "registry_name": "mass"
-    },
-    {
-      "name": "MorvedogreMobplayerCollidesBlock",
-      "type": "procedure",
-      "sortid": 4,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "morvedogre_mobplayer_collides_block",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
     },
     {
       "name": "Morvedogre",
@@ -70,6 +53,41 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "dq"
+    },
+    {
+      "name": "MorvedogreMobplayerCollidesBlock",
+      "type": "procedure",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "morvedogre_mobplayer_collides_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Malidic",
+      "type": "musicdisc",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "malidic"
+    },
+    {
+      "name": "Enderverse",
+      "type": "mob",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "enderverse"
     }
   ],
   "variable_elements": [],
@@ -77,12 +95,11 @@
   "language_map": {
     "en_us": {
       "item.pirateur_error.mass": "Mass",
-      "item.pirateur_error.dq_spawn_egg": "Dq Spawn Egg",
-      "entity.pirateur_error.dq": "Dq",
-      "entity.pirateur_error.ogure": "Ogre",
+      "item.pirateur_error.wather_ogre_bucket": "WatherOgre Bucket",
+      "fluid.wather_ogre": "WatherOgre",
       "fluid.morvedogre": "Morvedogre",
       "item.pirateur_error.morvedogre_bucket": "Morvedogre Bucket",
-      "item.pirateur_error.ogure_spawn_egg": "Ogre Spawn Egg"
+      "item.pirateur_error.ogre_teeth": "Ogre Teeth"
     }
   },
   "workspaceSettings": {
