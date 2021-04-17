@@ -54,15 +54,6 @@
       }
     },
     {
-      "name": "OGRE",
-      "type": "mob",
-      "sortid": 1,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "ogre"
-    },
-    {
       "name": "WatherOgre",
       "type": "fluid",
       "sortid": 6,
@@ -70,14 +61,38 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "wather_ogre"
+    },
+    {
+      "name": "Enderverse",
+      "type": "mob",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "enderverse"
+    },
+    {
+      "name": "Malidic",
+      "type": "musicdisc",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "malidic"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
-      "entity.pirateur_error.ogre": "OGRE",
-      "item.pirateur_error.ogre_spawn_egg": "OGRE Spawn Egg"
+      "item.pirateur_error.mass": "Mass",
+      "item.pirateur_error.wather_ogre_bucket": "WatherOgre Bucket",
+      "entity.pirateur_error.enderverse": "Ender verse",
+      "fluid.wather_ogre": "WatherOgre",
+      "item.pirateur_error.ogre_teeth": "Ogre Teeth",
+      "item.pirateur_error.malidic": "cd Malidic",
+      "item.pirateur_error.enderverse_spawn_egg": "Ender verse Spawn Egg",
+      "item.pirateur_error.malidic.desc": "tu sera maudit"
     }
   },
   "workspaceSettings": {

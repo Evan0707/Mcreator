@@ -2,10 +2,10 @@
   "_fv": 13,
   "_type": "mob",
   "definition": {
-    "mobName": "OGRE",
+    "mobName": "Ender verse",
     "mobLabel": "",
-    "mobModelName": "Biped",
-    "mobModelTexture": "ddd.png",
+    "mobModelName": "Modelptdr",
+    "mobModelTexture": "mdr.png",
     "mobModelGlowTexture": "",
     "modelWidth": 0.6,
     "modelHeight": 1.8,
@@ -13,18 +13,18 @@
     "mountedYOffset": 0.0,
     "hasSpawnEgg": true,
     "spawnEggBaseColor": {
-      "value": -1,
+      "value": -13057,
       "falpha": 0.0
     },
     "spawnEggDotColor": {
-      "value": -1,
+      "value": -13108,
       "falpha": 0.0
     },
     "creativeTab": {
       "value": "MISC"
     },
-    "isBoss": true,
-    "bossBarColor": "GREEN",
+    "isBoss": false,
+    "bossBarColor": "PINK",
     "bossBarType": "PROGRESS",
     "equipmentMainHand": {
       "value": ""
@@ -46,14 +46,14 @@
     },
     "mobBehaviourType": "Mob",
     "mobCreatureType": "UNDEFINED",
-    "attackStrength": 5,
+    "attackStrength": 3,
     "attackKnockback": 0.0,
     "knockbackResistance": 0.0,
     "movementSpeed": 0.3,
-    "armorBaseValue": 2.0,
+    "armorBaseValue": 0.0,
     "trackingRange": 64,
-    "health": 150,
-    "xpAmount": 0,
+    "health": 10,
+    "xpAmount": 25,
     "waterMob": false,
     "flyingMob": false,
     "guiBoundTo": "<NONE>",
@@ -64,18 +64,18 @@
     "canControlForward": false,
     "canControlStrafe": false,
     "immuneToFire": false,
-    "immuneToArrows": true,
-    "immuneToFallDamage": true,
+    "immuneToArrows": false,
+    "immuneToFallDamage": false,
     "immuneToCactus": false,
     "immuneToDrowning": false,
     "immuneToLightning": false,
     "immuneToPotions": false,
     "immuneToPlayer": false,
     "mobDrop": {
-      "value": ""
+      "value": "CUSTOM:Malidic"
     },
     "livingSound": {
-      "value": "entity.blaze.ambient"
+      "value": ""
     },
     "hurtSound": {
       "value": "entity.generic.hurt"
@@ -84,18 +84,15 @@
       "value": "entity.generic.death"
     },
     "stepSound": {
-      "value": "entity.irongolem.step"
+      "value": ""
     },
-    "spawnParticles": true,
+    "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"
     },
     "particleSpawningShape": "Spread",
-    "particleSpawningRadious": 1.9,
-    "particleAmount": 1,
-    "whenMobDies": {
-      "name": "OGREQuandLentiteMeurt"
-    },
+    "particleSpawningRadious": 0.5,
+    "particleAmount": 4,
     "hasAI": true,
     "aiBase": "(none)",
     "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"attack_on_collide\"><field name=\"speed\">1.2</field><field name=\"longmemory\">FALSE</field><field name=\"condition\">null,null</field><next><block type=\"wander\"><field name=\"speed\">1</field><field name=\"condition\">null,null</field><next><block type=\"attack_action\"><field name=\"callhelp\">FALSE</field><field name=\"condition\">null,null</field><next><block type=\"look_around\"><field name=\"condition\">null,null</field><next><block type=\"swim_in_water\"><field name=\"condition\">null,null</field></block></next></block></next></block></next></block></next></block></next></block></xml>",
@@ -111,8 +108,8 @@
     "doesDespawnWhenIdle": true,
     "spawningProbability": 20,
     "mobSpawningType": "monster",
-    "minNumberOfMobsPerGroup": 1,
-    "maxNumberOfMobsPerGroup": 1,
+    "minNumberOfMobsPerGroup": 4,
+    "maxNumberOfMobsPerGroup": 4,
     "restrictionBiomes": [],
     "spawnInDungeons": false
   }
