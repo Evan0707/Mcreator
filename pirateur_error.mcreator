@@ -26,13 +26,51 @@
           }
         ]
       }
+    },
+    {
+      "name": "Mass",
+      "type": "tool",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "mass"
+    },
+    {
+      "name": "MorvedogreMobplayerCollidesBlock",
+      "type": "procedure",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "morvedogre_mobplayer_collides_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Morvedogre",
+      "type": "fluid",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "morvedogre"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
+      "item.pirateur_error.mass": "Mass",
       "entity.pirateur_error.ogre": "OGRE",
+      "fluid.morvedogre": "Morvedogre",
+      "item.pirateur_error.morvedogre_bucket": "Morvedogre Bucket",
       "item.pirateur_error.ogre_spawn_egg": "OGRE Spawn Egg"
     }
   },
