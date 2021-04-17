@@ -6,7 +6,7 @@
       "type": "mob",
       "sortid": 1,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "ogre"
     },
@@ -26,13 +26,50 @@
           }
         ]
       }
+    },
+    {
+      "name": "Walkogre",
+      "type": "procedure",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "walkogre",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OgreTeeth",
+      "type": "item",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "ogre_teeth"
+    },
+    {
+      "name": "Mass",
+      "type": "item",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "mass"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
+      "item.pirateur_error.mass": "Mass",
       "entity.pirateur_error.ogre": "OGRE",
+      "item.pirateur_error.ogre_teeth": "Ogre Teeth",
       "item.pirateur_error.ogre_spawn_egg": "OGRE Spawn Egg"
     }
   },
@@ -47,7 +84,9 @@
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [],
+    "mcreatorDependencies": [
+      "geckolib"
+    ],
     "currentGenerator": "forge-1.15.2",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.pirateurerror",

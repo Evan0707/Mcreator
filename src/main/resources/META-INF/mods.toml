@@ -18,4 +18,9 @@ authors="GERY, MCreator"
 
 
 
+[[dependencies.pirateur_error]]
+    modId="geckolib"
+    mandatory=false
+    ordering="NONE"
+    side="BOTH"
 

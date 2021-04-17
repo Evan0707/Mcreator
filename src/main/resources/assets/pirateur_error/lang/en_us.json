@@ -1,4 +1,6 @@
 {
+  "item.pirateur_error.mass": "Mass",
   "entity.pirateur_error.ogre": "OGRE",
+  "item.pirateur_error.ogre_teeth": "Ogre Teeth",
   "item.pirateur_error.ogre_spawn_egg": "OGRE Spawn Egg"
 }

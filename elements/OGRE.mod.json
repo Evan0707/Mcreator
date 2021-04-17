@@ -4,7 +4,7 @@
   "definition": {
     "mobName": "OGRE",
     "mobLabel": "",
-    "mobModelName": "Modelcustom_model",
+    "mobModelName": "Biped",
     "mobModelTexture": "ddd.png",
     "mobModelGlowTexture": "",
     "modelWidth": 0.6,
