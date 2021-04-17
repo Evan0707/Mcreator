@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "parent": "forge:item/default",
+  "loader": "forge:obj",
+  "model": "pirateur_error:models/item/mass.obj",
+  "textures": {
+    "m_0": "pirateur_error:blocks/ddd",
+    "particle": "pirateur_error:items/mass"
+  }
+}
