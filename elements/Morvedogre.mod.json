@@ -2,15 +2,15 @@
   "_fv": 13,
   "_type": "fluid",
   "definition": {
-    "name": "WatherOgre",
-    "textureStill": "wather",
-    "textureFlowing": "wather",
+    "name": "Morvedogre",
+    "textureStill": "morve",
+    "textureFlowing": "morve",
     "luminosity": 0,
     "density": 1000,
-    "viscosity": 1000,
+    "viscosity": 2000,
     "isGas": false,
     "type": "LAVA",
-    "generateBucket": true,
+    "generateBucket": false,
     "creativeTab": {
       "value": "MISC"
     },
@@ -20,7 +20,7 @@
     ],
     "restrictionBiomes": [],
     "onEntityCollides": {
-      "name": "WatherOgreMobplayerCollidesBlock"
+      "name": "MorvedogreMobplayerCollidesBlock"
     }
   }
 }

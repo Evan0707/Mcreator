@@ -11,15 +11,6 @@
       "registry_name": "mass"
     },
     {
-      "name": "OgreTeeth",
-      "type": "item",
-      "sortid": 4,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "ogre_teeth"
-    },
-    {
       "name": "OGREQuandLentiteMeurt",
       "type": "procedure",
       "sortid": 2,
@@ -35,32 +26,6 @@
           }
         ]
       }
-    },
-    {
-      "name": "WatherOgreMobplayerCollidesBlock",
-      "type": "procedure",
-      "sortid": 6,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "wather_ogre_mobplayer_collides_block",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
-    },
-    {
-      "name": "WatherOgre",
-      "type": "fluid",
-      "sortid": 6,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "wather_ogre"
     },
     {
       "name": "Enderverse",
@@ -79,88 +44,6 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "malidic"
-    },
-    {
-      "name": "Ogre",
-      "type": "mob",
-      "sortid": 9,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "ogre"
-    },
-    {
-      "name": "Bouteilledevenin",
-      "type": "item",
-      "sortid": 10,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "bouteilledevenin"
-    },
-    {
-      "name": "MegaCreeperQuandLentiteMeurt",
-      "type": "procedure",
-      "sortid": 11,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "mega_creeper_quand_lentite_meurt",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "MegaCreeper",
-      "type": "mob",
-      "sortid": 11,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "mega_creeper"
-    },
-    {
-      "name": "SpiderQuandLentitMeurt",
-      "type": "procedure",
-      "sortid": 12,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "spider_quand_lentit_meurt",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
-    },
-    {
-      "name": "Spider",
-      "type": "mob",
-      "sortid": 12,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "spider"
     },
     {
       "name": "Babyspider",
@@ -201,13 +84,48 @@
       }
     },
     {
-      "name": "Eggspider",
-      "type": "block",
-      "sortid": 14,
+      "name": "Bouteilledevenin",
+      "type": "item",
+      "sortid": 10,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "eggspider"
+      "registry_name": "bouteilledevenin"
+    },
+    {
+      "name": "Spider",
+      "type": "mob",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "spider"
+    },
+    {
+      "name": "SpiderQuandLentitMeurt",
+      "type": "procedure",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "spider_quand_lentit_meurt",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MegaCreeper",
+      "type": "mob",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "mega_creeper"
     },
     {
       "name": "MegaCreeperQuandLentiteEstBlessee",
@@ -234,6 +152,97 @@
           {
             "name": "world",
             "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ogre",
+      "type": "mob",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "ogre"
+    },
+    {
+      "name": "MegaCreeperQuandLentiteMeurt",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "mega_creeper_quand_lentite_meurt",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Eggspider",
+      "type": "block",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "eggspider"
+    },
+    {
+      "name": "Morvedogre",
+      "type": "fluid",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "morvedogre"
+    },
+    {
+      "name": "Ogure",
+      "type": "mob",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "ogure"
+    },
+    {
+      "name": "Dq",
+      "type": "mob",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "dq"
+    },
+    {
+      "name": "MorvedogreMobplayerCollidesBlock",
+      "type": "procedure",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "morvedogre_mobplayer_collides_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
           }
         ]
       }

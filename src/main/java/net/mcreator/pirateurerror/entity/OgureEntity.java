@@ -4,12 +4,12 @@ package net.mcreator.pirateurerror.entity;
 import net.minecraft.block.material.Material;
 
 @PirateurErrorModElements.ModElement.Tag
-public class OgreEntity extends PirateurErrorModElements.ModElement {
+public class OgureEntity extends PirateurErrorModElements.ModElement {
 
 	public static EntityType entity = null;
 
-	public OgreEntity(PirateurErrorModElements instance) {
-		super(instance, 9);
+	public OgureEntity(PirateurErrorModElements instance) {
+		super(instance, 5);
 
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
@@ -17,13 +17,24 @@ public class OgreEntity extends PirateurErrorModElements.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("ogre")
-						.setRegistryName("ogre");
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("ogure")
+						.setRegistryName("ogure");
 
 		elements.entities.add(() -> entity);
 
-		elements.items.add(
-				() -> new SpawnEggItem(entity, -13369549, -16738048, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("ogre_spawn_egg"));
+		elements.items.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("ogure_spawn_egg"));
+
+	}
+
+	@Override
+	public void init(FMLCommonSetupEvent event) {
+		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
+
+			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 20, 4, 4));
+		}
+
+		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				MonsterEntity::canMonsterSpawn);
 
 	}
 
@@ -42,7 +53,7 @@ public class OgreEntity extends PirateurErrorModElements.ModElement {
 
 	}
 
-	public static class CustomEntity extends CreeperEntity {
+	public static class CustomEntity extends MonsterEntity {
 
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
@@ -50,7 +61,7 @@ public class OgreEntity extends PirateurErrorModElements.ModElement {
 
 		public CustomEntity(EntityType<CustomEntity> type, World world) {
 			super(type, world);
-			experienceValue = 12;
+			experienceValue = 0;
 			setNoAI(false);
 
 		}
@@ -77,11 +88,6 @@ public class OgreEntity extends PirateurErrorModElements.ModElement {
 			return CreatureAttribute.UNDEFINED;
 		}
 
-		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
-			super.dropSpecialItems(source, looting, recentlyHitIn);
-			this.entityDropItem(new ItemStack(OgreTeethItem.block, (int) (1)));
-		}
-
 		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.hurt"));
@@ -93,73 +99,22 @@ public class OgreEntity extends PirateurErrorModElements.ModElement {
 		}
 
 		@Override
-		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source == DamageSource.CACTUS)
-				return false;
-			if (source == DamageSource.LIGHTNING_BOLT)
-				return false;
-			return super.attackEntityFrom(source, amount);
-		}
-
-		@Override
-		public void onDeath(DamageSource source) {
-			super.onDeath(source);
-			double x = this.getPosX();
-			double y = this.getPosY();
-			double z = this.getPosZ();
-			Entity sourceentity = source.getTrueSource();
-			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-
-				$_dependencies.put("entity", entity);
-
-				OGREQuandLentiteMeurtProcedure.executeProcedure($_dependencies);
-			}
-		}
-
-		@Override
 		protected void registerAttributes() {
 			super.registerAttributes();
 
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
-				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.1);
+				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);
 
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
-				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(105);
+				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
 
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
-				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.5);
+				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0);
 
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null)
 				this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10);
+			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3);
 
-		}
-
-		@Override
-		public boolean isNonBoss() {
-			return false;
-		}
-
-		private final ServerBossInfo bossInfo = new ServerBossInfo(this.getDisplayName(), BossInfo.Color.RED, BossInfo.Overlay.PROGRESS);
-
-		@Override
-		public void addTrackingPlayer(ServerPlayerEntity player) {
-			super.addTrackingPlayer(player);
-			this.bossInfo.addPlayer(player);
-		}
-
-		@Override
-		public void removeTrackingPlayer(ServerPlayerEntity player) {
-			super.removeTrackingPlayer(player);
-			this.bossInfo.removePlayer(player);
-		}
-
-		@Override
-		public void updateAITasks() {
-			super.updateAITasks();
-			this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
 		}
 
 	}
