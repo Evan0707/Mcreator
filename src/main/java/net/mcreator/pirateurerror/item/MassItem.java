@@ -10,12 +10,17 @@ import net.minecraft.item.Rarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.block.BlockState;
 
 import net.mcreator.pirateurerror.PirateurErrorModElements;
 
 import java.util.List;
+
+import com.google.common.collect.Multimap;
 
 @PirateurErrorModElements.ModElement.Tag
 public class MassItem extends PirateurErrorModElements.ModElement {
@@ -48,6 +53,18 @@ public class MassItem extends PirateurErrorModElements.ModElement {
 		@Override
 		public float getDestroySpeed(ItemStack par1ItemStack, BlockState par2Block) {
 			return 1F;
+		}
+
+		@Override
+		public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot) {
+			Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(slot);
+			if (slot == EquipmentSlotType.MAINHAND) {
+				multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
+						new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "item_damage", (double) 6, AttributeModifier.Operation.ADDITION));
+				multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(),
+						new AttributeModifier(ATTACK_SPEED_MODIFIER, "item_attack_speed", -2.4, AttributeModifier.Operation.ADDITION));
+			}
+			return multimap;
 		}
 
 		@Override

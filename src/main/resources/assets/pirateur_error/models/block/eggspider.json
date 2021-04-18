@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "pirateur_error:blocks/eggspider",
+    "up": "pirateur_error:blocks/eggspider",
+    "north": "pirateur_error:blocks/eggspider",
+    "east": "pirateur_error:blocks/eggspider",
+    "south": "pirateur_error:blocks/eggspider",
+    "west": "pirateur_error:blocks/eggspider",
+    "particle": "pirateur_error:blocks/eggspider"
+  }
+}

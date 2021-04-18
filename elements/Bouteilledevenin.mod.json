@@ -2,30 +2,28 @@
   "_fv": 13,
   "_type": "item",
   "definition": {
-    "renderType": 1,
-    "texture": "mass",
-    "customModelName": "mass3:default",
-    "name": "Mass",
-    "rarity": "EPIC",
+    "renderType": 0,
+    "texture": "venin",
+    "customModelName": "Normal",
+    "name": "Bouteilledevenin",
+    "rarity": "COMMON",
     "creativeTab": {
-      "value": "COMBAT"
+      "value": "MISC"
     },
-    "stackSize": 1,
+    "stackSize": 64,
     "enchantability": 0,
     "useDuration": 0,
     "toolType": 1.0,
-    "damageCount": 1800,
+    "damageCount": 0,
     "recipeRemainder": {
       "value": ""
     },
     "destroyAnyBlock": false,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
-    "enableMeleeDamage": true,
-    "damageVsEntity": 8.0,
-    "specialInfo": [
-      "Masse de l'ogre"
-    ],
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "specialInfo": [],
     "hasGlow": false,
     "guiBoundTo": "<NONE>",
     "inventorySize": 9,
